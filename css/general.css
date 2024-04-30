@@ -1,0 +1,16 @@
+:root {
+    --color-body: #161616;
+    --color-fondo: #181818;
+    --color-borde: #333333;
+    --color-borde-top: #ededed20;
+    --color-sombra: #02020293;
+    --color-texto: #A0A0A0;
+    --color-fondo-brillo: #EDEDED;
+    --color-brillo: hsl(0, 0%, 100%, 0.056);
+}
+
+body {
+    background-color: var(--color-body);
+    margin: 0;
+    padding: 0;
+}

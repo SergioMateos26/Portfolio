@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Mateos Lozano</title>
+    <link rel="icon" href="code-64.png">
+    <!-- Font Awesome sin atributo integrity -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        #redes {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            width: 80%;
+            /* Modificado para que sea responsive */
+            max-width: 500px;
+            /* Establece un máximo para pantallas muy grandes */
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 10px;
+            /* Añadido un padding para separar los círculos del borde */
+        }
+
+        .circulos {
+            background-color: gray;
+            width: 45px;
+            /* Modificado para que sea responsive */
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            /* Centra horizontalmente */
+            align-items: center;
+            /* Centra verticalmente */
+            transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+            /* Añadida transición con efecto de easing */
+            cursor: pointer;
+            /* Agregado cursor apuntador */
+            border: 2px solid rgb(0, 0, 0);
+            /* Agregado borde rojo */
+        }
+
+        body {
+            background-color: black;
+            margin: 0;
+            /* Añadido para quitar el margen predeterminado */
+            padding: 0;
+            /* Añadido para quitar el padding predeterminado */
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0) scale(2.2);
+            }
+
+            40% {
+                transform: translateY(-30px) scale(2.2);
+            }
+
+            60% {
+                transform: translateY(-15px) scale(2.2);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="redes">
+        <button class="circulos"><i class="fab fa-google"></i></button>
+        <button class="circulos"><i class="fab fa-linkedin"></i></button>
+        <button class="circulos"><i class="fab fa-github"></i></button>
+        <button class="circulos"><i class="far fa-file-alt fa"></i></button>
+        <button class="circulos"><i class="far fa-folder-open fa"></i></button>
+        <button class="circulos"><i class="fas fa-paint-brush fa"></i></button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var circulos = document.querySelectorAll('.circulos');
+            circulos.forEach(function (circulo) {
+                circulo.addEventListener('mouseover', function () {
+                    expandirCirculos(this);
+                });
+                circulo.addEventListener('mouseleave', function () {
+                    restaurarCirculos();
+                });
+                circulo.addEventListener('click', function () {
+                    bounceEffect(this);
+                });
+            });
+        });
+
+        function expandirCirculos(elemento) {
+            var circulos = document.querySelectorAll('.circulos');
+            var indice = Array.prototype.indexOf.call(circulos, elemento);
+            circulos.forEach(function (circulo, index) {
+                var distancia = Math.abs(indice - index);
+                var escala = 1.1 + (0.15 * (distancia < 3 ? 3 - distancia : 0)); // Ajuste de la escala para hacerlos un poco más pequeños
+                if (circulo === elemento) { // Agrandar el círculo sobre el que está el ratón
+                    escala = 2.2;
+                }
+                circulo.style.transform = 'scale(' + escala + ')';
+            });
+        }
+
+        function restaurarCirculos() {
+            var circulos = document.querySelectorAll('.circulos');
+            circulos.forEach(function (circulo) {
+                circulo.style.transform = 'scale(1)';
+            });
+        }
+
+        function bounceEffect(elemento) {
+            elemento.style.animation = 'bounce 0.5s ease';
+            setTimeout(function () {
+                elemento.style.animation = '';
+            }, 500);
+        }
+    </script>
+</body>
+
+</html>

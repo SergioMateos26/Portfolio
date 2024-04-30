@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Mateos Lozano</title>
+    <!-- Icono de la página -->
+    <link rel="icon" href="code-64.png">
+    <!-- Enlace al archivo CSS general -->
+    <link rel="stylesheet" href="css/general.css">
+    <!-- Enlace al archivo CSS del menu -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Enlace al archivo CSS de feather-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+</head>
+
+<body>
+    <!-- Área de redes sociales -->
+    <div id="redes">
+        <!-- Botón de GitHub -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">GitHub</span>
+            <i data-feather="github" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de CV -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">CV</span>
+            <i data-feather="file-text" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de LinkedIn -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">LinkedIn</span>
+            <i data-feather="linkedin" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de Home -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">Home</span>
+            <i data-feather="home" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de Gmail -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">Gmail</span>
+            <i data-feather="mail" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de Proyectos -->
+        <button class="botones" onclick="toggleActive(this)">
+            <span class="texto">Proyectos</span>
+            <i data-feather="folder" class="icon-pequeno"></i>
+        </button>
+        <!-- Botón de Tema -->
+        <button id="toggle-theme" class="botones" onclick="toggleActive(this)">
+            <span class="texto">Tema</span>
+            <i data-feather="feather" class="icon-pequeno"></i>
+        </button>
+        <!-- Marcador -->
+        <div id="marcador"></div>
+        <!-- Brillo -->
+        <div id="brillo"></div>
+    </div>
+    <!-- Menú hamburguesa (visible solo en dispositivos móviles) -->
+    <div id="menu-hamburguesa" onclick="toggleMenu()">
+        <i data-feather="menu"></i>
+    </div>
+
+    <!-- Script para la carga de los iconos Feather -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script>
+        // Función que se ejecuta cuando se carga la ventana
+        window.onload = function () {
+            // Obtener el botón Home y activarlo
+            var homeButton = document.querySelector('.botones:nth-child(4)');
+            toggleActive(homeButton);
+        };
+
+        // Reemplazar los iconos Feather
+        feather.replace();
+
+        // Función para cambiar el botón activo
+        function toggleActive(button) {
+            var buttons = document.querySelectorAll('.botones');
+            var marcador = document.getElementById('marcador');
+            var brillo = document.getElementById('brillo');
+
+            // Obtener el índice del botón clicado
+            var index = Array.prototype.indexOf.call(buttons, button);
+            var width = button.offsetWidth;
+            var height = button.offsetHeight;
+
+            // Calcular nueva posición para el marcador
+            var newPositionW = (index - 3) * width;
+            var newPositionH = (index - 3) * height;
+
+            // Aplicar transformaciones según el ancho de la pantalla
+            if (window.innerWidth < 650) {
+                marcador.style.transform = 'translateY(' + newPositionH + 'px)';
+                brillo.style.transform = 'translateY(' + newPositionH + 'px) rotate(1e-05deg) scale(2, 2)';
+            } else {
+                marcador.style.transform = 'translateX(' + newPositionW + 'px)';
+                brillo.style.transform = 'translateX(' + newPositionW + 'px) rotate(1e-05deg) scale(2, 2)';
+            }
+
+            // Cambiar el color de los botones
+            buttons.forEach(function (btn) {
+                btn.style.color = '';
+            });
+
+            // Cambiar el color del botón activo después de un breve retraso
+            setTimeout(function () {
+                button.style.color = '--color-fondo-brillo';
+            }, 150);
+
+            // Ajustes adicionales para pantallas anchas
+            if (window.innerWidth > 650) {
+                if (index === 0) {
+                    marcador.style.borderRadius = '50px 0px 0px 50px';
+                    marcador.style.marginLeft = '5px';
+                    marcador.style.marginRight = '0px';
+                    marcador.style.width = '13%';
+                } else if (index === buttons.length - 1) {
+                    marcador.style.borderRadius = '0px 50px 50px 0px';
+                    marcador.style.marginRight = '5px';
+                    marcador.style.marginLeft = '0px';
+                    marcador.style.width = '13%';
+                } else {
+                    marcador.style.borderRadius = '50px';
+                    marcador.style.marginLeft = '0px';
+                    marcador.style.marginRight = '0px';
+                    marcador.style.width = 'calc(100% / 7)';
+                }
+            }
+            // Ajustes adicionales para pantallas estrechas
+            if (window.innerWidth < 650) {
+                marcador.style.borderRadius = '50px';
+                marcador.style.width = '30%';
+                marcador.style.marginTop = '4px';
+                marcador.style.height = '22px';
+                if (index === 0) {
+                    marcador.style.borderRadius = '0px 0px 50px 50px';
+                }
+                else if (index === buttons.length - 1) {
+                    marcador.style.borderRadius = '50px 50px 0px 0px';
+                }
+            }
+
+        }
+
+        // Función para mostrar/ocultar el menú hamburguesa
+        function toggleMenu() {
+            var redes = document.getElementById('redes');
+            var menu = document.getElementById('menu-hamburguesa');
+            var marcador = document.getElementById('marcador');
+            var brillo = document.getElementById('brillo');
+            var buttons = document.querySelectorAll('.botones');
+
+            // Mostrar u ocultar el área de redes sociales
+            if (!redes.classList.contains('slide-in')) {
+                // Agregar la clase de animación y mostrar el área de redes sociales
+                redes.classList.add('slide-in');
+                redes.style.display = 'flex';
+                redes.style.alignItems = 'center';
+                redes.style.justifyContent = 'center';
+                redes.style.top = '18%';
+                redes.style.transform = 'translate(-50%, -50%)';
+                redes.style.height = '208px';
+
+                // Iterar sobre los botones y aplicar el estilo a cada uno
+                buttons.forEach(function (button) {
+                    button.style.height = '50px';
+                    button.style.width = '230px';
+                    button.style.padding = '7px';
+                    button.style.borderTop = '0.1px solid var(--color-borde-top)';
+                });
+            } else {
+                // Quitar la clase de animación y ocultar el área de redes sociales
+                redes.classList.remove('slide-in');
+                redes.style.display = 'none';
+
+                // Restablecer posición del marcador y el brillo en pantallas anchas
+                if (window.innerWidth > 650) {
+                    marcador.style.transform = '';
+                    brillo.style.transform = '';
+                }
+            }
+        }
+
+        // Variables para el ancho de la ventana
+        var windowWidth = window.innerWidth;
+
+        // Función para manejar cambios en el tamaño de la ventana
+        window.onresize = function () {
+            // Recargar la página si cambia la condición de pantalla estrecha/ancha
+            if ((windowWidth < 650 && window.innerWidth >= 650) || (windowWidth >= 650 && window.innerWidth < 650)) {
+                window.location.reload();
+            }
+
+            // Actualizar el ancho de la ventana
+            windowWidth = window.innerWidth;
+        };
+
+
+    </script>
+
+    <script src="js/tema.js"></script>
+
+</body>
+
+</html>
