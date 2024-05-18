@@ -1,0 +1,61 @@
+ /* Estilos para el contenedor principal */
+ .contenedor {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+ }
+
+ /* Estilos para el contenedor que centra el contenido */
+ .centrado {
+     width: 1140px;
+ }
+
+ /* Estilos para el contenedor de la imagen y el texto */
+ .perfil-info {
+     display: flex;
+     align-items: center;
+ }
+
+ /* Estilos para el contenedor de la imagen */
+ .perfil-container {
+     border: 1px solid var(--color-borde);
+     /* Color del borde y grosor */
+     border-radius: 50%;
+     /* Para hacer un borde redondeado */
+     width: 140px;
+     /* Ancho de la imagen */
+     height: 140px;
+     /* Alto de la imagen */
+     overflow: hidden;
+     /* Para recortar cualquier parte de la imagen que se extienda más allá del contenedor */
+     float: left;
+     /* Hacer que el contenedor de la imagen flote a la izquierda */
+     margin-right: 20px;
+     /* Espacio entre la imagen y el texto */
+ }
+
+
+ /* Estilos para la imagen */
+ .perfil-img {
+     width: 100%;
+     /* Ajustar la imagen al ancho del contenedor */
+     height: auto;
+     /* Mantener la proporción de la imagen */
+     margin-top: -11%;
+ }
+
+ /* Estilos para el texto */
+ .texto-container {
+     float: left;
+     /* Hacer que el contenedor de texto flote a la izquierda */
+     text-align: left;
+     /* Alinear el texto a la izquierda */
+ }
+
+ /* Estilos para el texto */
+ h1,
+ p {
+     margin: 0;
+     padding: 0;
+     /* Eliminar márgenes por defecto */
+ }
