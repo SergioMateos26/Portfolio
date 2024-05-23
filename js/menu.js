@@ -26,10 +26,10 @@ function toggleActive(button) {
     // Aplicar transformaciones según el ancho de la pantalla
     if (window.innerWidth < 650) {
         marcador.style.transform = 'translateY(' + newPositionH + 'px)';
-        brillo.style.transform = 'translateY(' + newPositionH + 'px) rotate(1e-05deg) scale(2, 2)';
+        //brillo.style.transform = 'translateY(' + newPositionH + 'px) rotate(1e-05deg) scale(2, 2)';
     } else {
         marcador.style.transform = 'translateX(' + newPositionW + 'px)';
-        brillo.style.transform = 'translateX(' + newPositionW + 'px) rotate(1e-05deg) scale(2, 2)';
+        //brillo.style.transform = 'translateX(' + newPositionW + 'px) rotate(1e-05deg) scale(2, 2)';
     }
 
     // Cambiar el color de los botones
@@ -64,9 +64,9 @@ function toggleActive(button) {
     // Ajustes adicionales para pantallas estrechas
     if (window.innerWidth < 650) {
         marcador.style.borderRadius = '50px';
-        marcador.style.width = '32%';
-        marcador.style.marginTop = '4px';
-        marcador.style.height = '22px';
+        marcador.style.top = '48%';
+        marcador.style.width = '40%';
+        marcador.style.height = '5%';
         if (index === 0) {
             marcador.style.borderRadius = '0px 0px 50px 50px';
         }
@@ -79,33 +79,55 @@ function toggleActive(button) {
 
 // Función para mostrar/ocultar el menú hamburguesa
 function toggleMenu() {
-    var redes = document.getElementById('redes');
     var menu = document.getElementById('menu-hamburguesa');
+    var redes = document.getElementById('redes');
     var marcador = document.getElementById('marcador');
     var brillo = document.getElementById('brillo');
     var buttons = document.querySelectorAll('.botones');
 
+    // Definir los estilos del área de redes sociales
+    var redesStyles = {
+        position: 'fixed',
+        top: '0',
+        left: '0',
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'var(--color-body)', // Fondo semitransparente
+        zIndex: '1000', // Asegúrate de que esté sobre otros elementos
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'var(--color-texto)', // Color del texto
+        borderRadius: '0px',
+    };
+
     // Mostrar u ocultar el área de redes sociales
-    if (!redes.classList.contains('slide-in')) {
+    if (!redes.classList.contains('menu-visible')) {
+        // Aplicar los estilos al área de redes sociales
+        for (var style in redesStyles) {
+            redes.style[style] = redesStyles[style];
+        }
+
+        // Mostrar el área de redes sociales
+        redes.classList.add('menu-visible');
+        redes.classList.remove('menu-hidden');
+
         // Agregar la clase de animación y mostrar el área de redes sociales
         redes.classList.add('slide-in');
         redes.style.display = 'flex';
-        redes.style.alignItems = 'center';
-        redes.style.justifyContent = 'center';
-        redes.style.top = '18%';
-        redes.style.transform = 'translate(-50%, -50%)';
-        redes.style.height = '203px';
 
         // Iterar sobre los botones y aplicar el estilo a cada uno
         buttons.forEach(function (button) {
-            button.style.height = '60px';
-            button.style.width = '230px';
+            button.style.height = '8%';
+            button.style.width = '40%';
             button.style.padding = '2px';
             button.style.borderTop = '0.1px solid var(--color-borde-top)';
         });
     } else {
-        // Quitar la clase de animación y ocultar el área de redes sociales
-        redes.classList.remove('slide-in');
+        // Ocultar el área de redes sociales
+        redes.classList.remove('menu-visible');
+        redes.classList.add('menu-hidden');
         redes.style.display = 'none';
 
         // Restablecer posición del marcador y el brillo en pantallas anchas
@@ -115,6 +137,7 @@ function toggleMenu() {
         }
     }
 }
+
 
 // Variables para el ancho de la ventana
 var windowWidth = window.innerWidth;

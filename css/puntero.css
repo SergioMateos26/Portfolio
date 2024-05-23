@@ -1,44 +1,62 @@
- /* Estilo para el puntero personalizado */
- #puntero-personalizado {
-   position: absolute;
-   background-color: transparent;
-   /* Fondo transparente */
-   border: 4px solid #9e9e9c;
-   /* Borde negro */
-   border-radius: 50%;
-   /* Da forma de círculo al círculo exterior */
-   background-color: transparent;
-   /* Fondo transparente */
-   pointer-events: none;
-   /* No debe interactuar con eventos de ratón */
-   z-index: 9999;
-   /* Se muestra sobre otros elementos */
-   transition: transform 0.02s ease, border 0.5s ease, width 0.5s ease, height 0.5s ease;
-   /* Transición más lenta del puntero */
- }
-
- /* Estilo para el círculo exterior */
- #circulo-exterior {
+/* Estilo para el puntero personalizado */
+#puntero-personalizado {
   position: absolute;
-  width: 85px; /* Tamaño del círculo exterior */
-  height: 85px; /* Tamaño del círculo exterior */
-  background-color: transparent; /* Fondo transparente */
-  border: 1px solid #9e9e9c; /* Borde negro */
-  border-radius: 50%; /* Da forma de círculo al círculo exterior */
-  pointer-events: none; /* No debe interactuar con eventos de ratón */
-  z-index: 9998; /* Se muestra detrás del puntero */
+  background-color: transparent;
+  /* Fondo transparente */
+  border: 4px solid #9e9e9c;
+  /* Borde negro */
+  border-radius: 50%;
+  /* Da forma de círculo al círculo exterior */
+  pointer-events: none;
+  /* No debe interactuar con eventos de ratón */
+  z-index: 9999;
+  /* Se muestra sobre otros elementos */
+  transition: transform 0.02s ease, border 0.5s ease, width 0.5s ease, height 0.5s ease;
+  /* Transición más lenta del puntero */
+}
+
+/* Estilo para el círculo exterior */
+#circulo-exterior {
+  position: absolute;
+  width: 85px;
+  /* Tamaño del círculo exterior */
+  height: 85px;
+  /* Tamaño del círculo exterior */
+  background-color: transparent;
+  /* Fondo transparente */
+  border: 1px solid #9e9e9c;
+  /* Borde negro */
+  border-radius: 50%;
+  /* Da forma de círculo al círculo exterior */
+  pointer-events: none;
+  /* No debe interactuar con eventos de ratón */
+  z-index: 9998;
+  /* Se muestra detrás del puntero */
   transition: transform 0.05s ease, width 0.5s ease, height 0.5s ease;
-   /* Transición más lenta del círculo exterior */
- }
- 
- 
+  /* Transición más lenta del círculo exterior */
+}
+
 #circulo-exterior.hidden {
-  width: 0; /* Reduce el ancho del círculo a cero */
-  height: 0; /* Reduce la altura del círculo a cero */
+  width: 0;
+  /* Reduce el ancho del círculo a cero */
+  height: 0;
+  /* Reduce la altura del círculo a cero */
 }
+
 #puntero-personalizado.hidden {
-  border: 3px solid #9e9e9c; /* Asegura que el borde desaparezca cuando se oculta */
-  width: 14px;
-  height: 14px;
+  border: 2px solid #9e9e9c;
+  /* Asegura que el borde desaparezca cuando se oculta */
+  width: 15px;
+  height: 15px;
 }
- 
+
+@media (max-width: 650px) {
+  #puntero-personalizado {
+    display: none;
+  }
+
+  #circulo-exterior {
+    display: none;
+  }
+
+}

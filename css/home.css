@@ -1,61 +1,74 @@
- /* Estilos para el contenedor principal */
- .contenedor {
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
+/* Estilos para el contenedor que centra el contenido */
+.centrado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px;
+    margin: auto;
+    height: 75vh;
+}
 
- /* Estilos para el contenedor que centra el contenido */
- .centrado {
-     width: 1140px;
- }
+.centrado > section {
+    box-sizing: border-box; /* Asegura que el padding y border se incluyan en el ancho */
+}
 
- /* Estilos para el contenedor de la imagen y el texto */
- .perfil-info {
-     display: flex;
-     align-items: center;
- }
+.centrado > section:first-child {
+    width: 63%; /* Ocupa el 50% del contenedor */
+}
 
- /* Estilos para el contenedor de la imagen */
- .perfil-container {
-     border: 1px solid var(--color-borde);
-     /* Color del borde y grosor */
-     border-radius: 50%;
-     /* Para hacer un borde redondeado */
-     width: 140px;
-     /* Ancho de la imagen */
-     height: 140px;
-     /* Alto de la imagen */
-     overflow: hidden;
-     /* Para recortar cualquier parte de la imagen que se extienda más allá del contenedor */
-     float: left;
-     /* Hacer que el contenedor de la imagen flote a la izquierda */
-     margin-right: 20px;
-     /* Espacio entre la imagen y el texto */
- }
+.centrado > section:last-child {
+    width: 32%; /* Ocupa el 40% del contenedor */
+    border: 0.5px solid var(--color-texto);
+}
+
+/* Estilos para el contenedor de la imagen y el texto */
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
 
- /* Estilos para la imagen */
- .perfil-img {
-     width: 100%;
-     /* Ajustar la imagen al ancho del contenedor */
-     height: auto;
-     /* Mantener la proporción de la imagen */
-     margin-top: -11%;
- }
+/* Estilos para el contenedor de la imagen */
+.perfil-container {
+    width: 65%;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
 
- /* Estilos para el texto */
- .texto-container {
-     float: left;
-     /* Hacer que el contenedor de texto flote a la izquierda */
-     text-align: left;
-     /* Alinear el texto a la izquierda */
- }
 
- /* Estilos para el texto */
- h1,
- p {
-     margin: 0;
-     padding: 0;
-     /* Eliminar márgenes por defecto */
- }
+/* Estilos para la imagen */
+.perfil-img {
+    width: 100%;
+    /* Ajustar la imagen al ancho del contenedor */
+    height: auto;
+}
+
+/* Estilos para el texto */
+h1,
+p {
+    margin: 0;
+    padding: 0;
+    /* Eliminar márgenes por defecto */
+}
+
+@media (max-width: 650px) {
+
+    #bodyHome{
+        overflow-y: auto;
+    }
+
+    .centrado{
+        flex-direction: column-reverse;
+        height: 125vh;
+        justify-content: space-evenly;
+    }
+    .centrado > section:first-child {
+        width: 90%;
+    }
+    
+    .centrado > section:last-child {
+        width: 60%;
+    }
+}

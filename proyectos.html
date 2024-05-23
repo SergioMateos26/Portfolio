@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Mateos Lozano</title>
+    <link rel="icon" href="img/code-64.png">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/puntero.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+</head>
+
+<body>
+    <div id="circulo-exterior"></div>
+    <div id="puntero-personalizado"></div>
+    
+    <div class="contenedor-principal">
+        <div id="redes">
+            <button id="githubButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">GitHub</span>
+                <i data-feather="github" class="icon-pequeno"></i>
+            </button>
+            <button id="cvButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">CV</span>
+                <i data-feather="file" class="icon-pequeno"></i>
+            </button>
+            <button id="linkedInButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">LinkedIn</span>
+                <i data-feather="linkedin" class="icon-pequeno"></i>
+            </button>
+            <button id="homeButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Home</span>
+                <i data-feather="home" class="icon-pequeno"></i>
+            </button>
+            <button class="botones" onclick="toggleActive(this)">
+                <span class="texto">Gmail</span>
+                <i data-feather="mail" class="icon-pequeno"></i>
+            </button>
+            <button id="proyectosButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Proyectos</span>
+                <i data-feather="folder" class="icon-pequeno"></i>
+            </button>
+            <button id="toggle-theme" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Tema</span>
+                <i id="sun-icon" data-feather="sun" class="icon-pequeno" style="display: none;"></i>
+                <i id="moon-icon" data-feather="moon" class="icon-pequeno"></i>
+            </button>
+            <div id="marcador"></div>
+            <div id="brillo"></div>
+        </div>
+    </div>
+    <section
+        style="width: 861px; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <h1 class="fuente activa">Proyecto Laravel</h1>
+        <h3 class="fuente letra">Aplicación para gestionar un restaurante</h3>
+        <div>
+            <div><img style="width: 861px; height: 430px;" src="img/Screenshot 2024-05-03 224548.png"></div>
+            <div>
+                <p style="width: 861px;" class="letra fuente">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facilis dolorem incidunt nihil nostrum, tenetur ea aspernatur expedita veniam unde obcaecati in,
+                    quos sunt, explicabo laboriosam vero eius nemo dolore delectus? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Tenetur laboriosam mollitia explicabo fuga deleniti quasi eos eaque
+                    obcaecati? Ducimus architecto animi perspiciatis quia officiis et excepturi esse libero eligendi
+                    recusandae.</p>
+                <p style="width: 861px;" class="letra fuente">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Illum cum iusto magni vel voluptatibus, cupiditate ad. Est, quasi recusandae provident dolorum
+                    eveniet quae dolor aperiam nostrum rem optio repellat dicta. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Quisquam cumque a eveniet. Numquam eveniet sunt optio obcaecati nostrum ipsum ex
+                    nemo molestias suscipit expedita. Unde assumenda asperiores iste expedita blanditiis!</p>
+            </div>
+        </div>
+    </section>
+    <section
+        style="width: 861px; height: 100vh; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <h1 class="fuente activa">Proyecto Laravel</h1>
+        <h3 class="fuente letra">Aplicación para gestionar un restaurante</h3>
+        <div>
+            <div><img style="width: 861px; height: 430px;" src="img/Screenshot 2024-05-03 224548.png"></div>
+            <div>
+                <p style="width: 861px;" class="letra fuente">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Facilis dolorem incidunt nihil nostrum, tenetur ea aspernatur expedita veniam unde obcaecati in,
+                    quos sunt, explicabo laboriosam vero eius nemo dolore delectus? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Tenetur laboriosam mollitia explicabo fuga deleniti quasi eos eaque
+                    obcaecati? Ducimus architecto animi perspiciatis quia officiis et excepturi esse libero eligendi
+                    recusandae.</p>
+                <p style="width: 861px;" class="letra fuente">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Illum cum iusto magni vel voluptatibus, cupiditate ad. Est, quasi recusandae provident dolorum
+                    eveniet quae dolor aperiam nostrum rem optio repellat dicta. Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Quisquam cumque a eveniet. Numquam eveniet sunt optio obcaecati nostrum ipsum ex
+                    nemo molestias suscipit expedita. Unde assumenda asperiores iste expedita blanditiis!</p>
+            </div>
+        </div>
+    </section>
+    <div id="menu-hamburguesa" onclick="toggleMenu()">
+        <i data-feather="menu"></i>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/puntero.js"></script>
+    <script src="js/gitHub.js"></script>
+    <script src="js/cv.js"></script>
+    <script src="js/linkedIn.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/tema.js"></script>
+    <script src="js/proyectos.js"></script>
+</body>
+
+</html>

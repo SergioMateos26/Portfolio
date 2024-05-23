@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sergio Mateos Lozano</title>
+    <!-- Icono de la página -->
+    <link rel="icon" href="img/code-64.png">
+
+    <!-- Enlace al archivo CSS scrollbar -->
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <!-- Enlace al archivo CSS general -->
+    <link rel="stylesheet" href="css/general.css">
+    <!-- Enlace al archivo CSS del menu -->
+    <link rel="stylesheet" href="css/menu.css">
+    <!-- Enlace al archivo CSS del puntero -->
+    <link rel="stylesheet" href="css/puntero.css">
+    <!-- Enlace al archivo CSS del home -->
+    <link rel="stylesheet" href="css/home.css">
+    <!-- Enlace al archivo CSS de feather-icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.css">
+</head>
+
+<style>
+    .logo {
+        display: flex;
+        font-family: 'Arial', sans-serif;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    .letter {
+        color: var(--color-body);
+        padding: 5px 10px;
+        margin: 2px;
+        border: 2px solid var(--color-body);
+        border-radius: 3px;
+        background-color: var(--color-texto);
+    }
+
+    .titulo {
+        color: var(--color-body);
+        padding: 5px;
+        border-radius: 3px;
+    }
+
+    .titulo span {
+        background-color: var(--color-texto);
+        padding: 6px 10px;
+    }
+
+    p {
+        padding: 6px;
+    }
+    hr{
+        border: 0;
+            height: 0.5px;
+            background-color: var(--color-texto);
+            margin: 20px 0;
+    }
+</style>
+
+
+<body id="bodyHome">
+
+    <div id="circulo-exterior"></div>
+    <div id="puntero-personalizado"></div>
+
+    <div class="contenedor-principal">
+        <div class="logo">
+            <span class="letter">S</span>
+            <span class="letter">M</span>
+            <span class="letter">L</span>
+        </div>
+        <div id="redes">
+            <!-- Botón de GitHub -->
+            <button id="githubButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">GitHub</span>
+                <i data-feather="github" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de CV -->
+            <button id="cvButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">CV</span>
+                <i data-feather="file" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de LinkedIn -->
+            <button id="linkedInButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">LinkedIn</span>
+                <i data-feather="linkedin" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de Home -->
+            <button id="homeButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Home</span>
+                <i data-feather="home" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de Gmail -->
+            <button class="botones" onclick="toggleActive(this)">
+                <span class="texto">Gmail</span>
+                <i data-feather="mail" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de Proyectos -->
+            <button id="proyectosButton" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Proyectos</span>
+                <i data-feather="folder" class="icon-pequeno"></i>
+            </button>
+            <!-- Botón de Tema -->
+            <button id="toggle-theme" class="botones" onclick="toggleActive(this)">
+                <span class="texto">Tema</span>
+                <i id="sun-icon" data-feather="sun" class="icon-pequeno" style="display: none;"></i>
+                <i id="moon-icon" data-feather="moon" class="icon-pequeno"></i>
+            </button>
+
+            <!-- Marcador -->
+            <div id="marcador"></div>
+            <!-- Brillo -->
+            <!-- <div id="brillo"></div> -->
+        </div>
+    </div>
+
+    
+
+
+    <!-- Contenedor principal -->
+    <div class="centrado">
+        <section>
+            <h1 class="fuente activa titulo"><span>Sobre Mi</span></h1>
+            
+            <p class="fuente letra parrafo">¡Soy Sergio! Tengo 26 años y soy de Ordizia, Gipuzkoa. He terminado mis
+                estudios como Desarrollador de Aplicaciones Web en Zubiri Manteo. Actualmente estoy enfocado en el
+                desarrollo BackEnd.</p>
+            <p class="fuente letra parrafo">Entre mis proyectos destaca ASAGrill, desarrollado como proyecto final de
+                grado superior. Este proyecto se enfoca en desarrollar una página web destinada a un restaurante, con el
+                objetivo de mejorar la experiencia de los clientes y simplificar las operaciones internas del
+                establecimiento. </p>
+            <p class="fuente letra parrafo">También destacan FestMaker, un gestor de festivales, y Espacios
+                Naturales, hecho con React para poner en práctica los conocimientos aprendidos.</p>
+            <p class="fuente letra parrafo">Si quieres saber más sobre estos proyectos, haz clic aquí.</p>
+            <p class="fuente letra parrafo">Ver otros proyectos.</p>
+           
+        </section>
+        <section class="perfil-info">
+            <div class="perfil-container">
+                <img class="perfil-img" src="img/SergioMateosLozano.png" alt="Imagen de perfil">
+            </div>
+            <div>
+                <h1 class="fuente activa">Sergio Mateos Lozano</h1>
+                <p class="fuente letra">Desarrollador de aplicaciones web</p>
+            </div>
+        </section>
+    </div>
+    
+    
+
+    <!-- Menú hamburguesa (visible solo en dispositivos móviles) -->
+    <div id="menu-hamburguesa" onclick="toggleMenu()">
+        <i data-feather="menu"></i>
+    </div>
+
+
+    <!-- Script para la carga de los iconos Feather -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <!-- Script para la carga el menu -->
+    <script src="js/menu.js"></script>
+    <!-- Script para la carga el menu -->
+    <script src="js/puntero.js"></script>
+    <!-- Script para la cargar el gitHub -->
+    <script src="js/gitHub.js"></script>
+    <!-- Script para la cargar el cv -->
+    <script src="js/cv.js"></script>
+    <!-- Script para la cargar el linkedIn -->
+    <script src="js/linkedIn.js"></script>
+    <!-- Script para la cargar el home -->
+    <script src="js/home.js"></script>
+    <!-- Script para la cargar el tema -->
+    <script src="js/tema.js"></script>
+    <!-- Script para la cargar el proyectos -->
+    <script src="js/proyectos.js"></script>
+
+</body>
+
+</html>

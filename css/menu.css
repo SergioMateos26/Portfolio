@@ -1,171 +1,189 @@
- /* Estilos del área de redes sociales */
- #redes {
-    position: absolute;
-    top: 7%; /* Ajusta la posición vertical */
-    right: 25%; /* Ajusta la posición horizontal */
-    transform: translate(50%, -50%);
-    width: 70%;
+.contenedor-principal {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilos del área de redes sociales */
+#redes {
+    width: 60%;
     max-width: 859px;
     height: 55px;
     border-radius: 50px;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     animation: slide-up 1s ease forwards;
+    transform: translate(0%, 0%);
+
 }
 
 
- /* Estilos de los botones de redes sociales */
- .botones {
-     color: var(--color-texto);
-     display: flex;
-     justify-content: center;
-     align-items: center;
-     cursor: pointer;
-     background-color: transparent;
-     border: none;
-     padding-left: 15px;
-     padding-right: 15px;
-     position: relative;
-     width: calc(100% / 7);
-     box-sizing: border-box;
-     position: relative; /* Necesario para el pseudo-elemento */
-     overflow: hidden; /* Para ocultar el borde en reposo */
-     
- }
+/* Estilos de los botones de redes sociales */
+.botones {
+    color: var(--color-texto);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    width: calc(100% / 7);
+    box-sizing: border-box;
+    position: relative;
+    /* Necesario para el pseudo-elemento */
+    overflow: hidden;
+    /* Para ocultar el borde en reposo */
+    padding: 5px;
+}
 
- .botones::after {
-    content: ''; /* Añadir contenido al pseudo-elemento */
+/* Estilos del texto dentro de los botones */
+.botones .texto {
+    margin-right: 3px;
+    font-family: "Segoe UI";
+    font-size: 16px;
+    transition: font-size 0.2s ease, transform 0.2s ease; /* Agrega transición para el tamaño del texto y el desplazamiento */
+}
+
+/* Estilos de los iconos pequeños dentro de los botones */
+.botones .icon-pequeno {
+    width: 16px;
+    transition: width 0.2s ease, transform 0.2s ease; /* Agrega transición para el tamaño del icono y el desplazamiento */
+}
+
+/* Estilos cuando se pasa el ratón por encima */
+.botones:hover .texto {
+    font-size: 17px; /* Tamaño del texto al hacer hover */
+    transform: translateY(-3px); /* Desplaza hacia arriba */
+    color: var( --color-active);
+}
+
+.botones:hover .icon-pequeno {
+    width: 17px; /* Tamaño del icono al hacer hover */
+    transform: translateY(-3px); /* Desplaza hacia arriba */
+    color: var( --color-active);
+}
+
+.menu-hidden {
+    display: none;
+}
+
+.menu-visible {
+    display: flex;
+}
+
+
+
+/* Estilos del marcador */
+#marcador {
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0; /* Comienza sin ancho */
-    height: 1px; /* Grosor del borde */
-    background-color: var( --color-texto); /* Color del borde */
-    transition: width 0.4s ease, left 0.4s ease; /* Transiciones para el ancho y la posición */
-   
+    background-color: var(--color-brillo);
+    height: calc(100% - 14px);
+    width: calc(100% / 7);
+    border-radius: 50px;
+    transition: transform 0.5s ease, background-color 0.5s ease;
 }
 
-.botones:hover::after {
-    width: 80%; /* Ancho de la barra al hacer hover */
-    left: 10%; /* Centra la barra estableciendo un desplazamiento del 10% desde el borde izquierdo */
+/* Estilos del brillo */
+#brillo {
+    opacity: 0.08;
+    transform: rotate(1e-05deg) scale(2, 2);
+    background: var(--color-fondo-brillo);
+    width: 8%;
+    height: 50px;
+    border-radius: 9999px;
+    position: absolute;
+    z-index: 1;
+    filter: blur(8px);
+    bottom: 0px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
- /* Estilos del texto dentro de los botones */
- .botones .texto {
-     margin-right: 3px;
-     font-family: "Segoe UI";
-     font-size: 16px;
- }
+/* Evitar que los elementos de marcador y brillo intercepten los clics */
+#marcador,
+#brillo {
+    pointer-events: none;
+}
 
- /* Estilos de los iconos pequeños dentro de los botones */
- .icon-pequeno {
-     width: 15px;
- }
+/* Estilos del menú hamburguesa (solo visible en dispositivos móviles) */
+#menu-hamburguesa {
+    display: none;
+}
 
- /* Estilos del marcador */
- #marcador {
-     position: absolute;
-     background-color: var(--color-brillo);
-     height: calc(100% - 14px);
-     width: calc(100% / 7);
-     border-radius: 50px;
-     transition: transform 0.5s ease, background-color 0.5s ease;
- }
+/* Animación para mostrar el área de redes sociales en movil */
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+}
 
- /* Estilos del brillo */
- #brillo {
-     opacity: 0.1;
-     transform: rotate(1e-05deg) scale(2, 2);
-     background: var(--color-fondo-brillo);
-     width: 8%;
-     height: 50px;
-     border-radius: 9999px;
-     position: absolute;
-     z-index: 1;
-     filter: blur(10px);
-     bottom: 0px;
-     transition: opacity 0.5s ease, transform 0.5s ease;
- }
+#redes.slide-in {
+    animation: slideInFromTop 0.5s ease forwards;
+}
 
- /* Evitar que los elementos de marcador y brillo intercepten los clics */
- #marcador,
- #brillo {
-     pointer-events: none;
- }
+/* Animación para mostrar el área de redes sociales */
+@keyframes slide-up {
+    0% {
+        bottom: -55px;
+    }
 
- /* Estilos del menú hamburguesa (solo visible en dispositivos móviles) */
- #menu-hamburguesa {
-     display: none;
- }
+    100% {
+        bottom: 20px;
+    }
+}
 
- /* Animación para mostrar el área de redes sociales en movil */
- @keyframes slideInFromTop {
-     0% {
-         transform: translateY(-100%);
-     }
- }
+/* Estilos para pantallas con un ancho máximo de 1200px */
+@media (max-width: 1200px) {
+    .botones .icon-pequeno {
+        display: none;
+    }
 
- #redes.slide-in {
-     animation: slideInFromTop 0.5s ease forwards;
- }
+    .botones .texto {
+        font-size: 11px;
+    }
+}
 
- /* Animación para mostrar el área de redes sociales */
- @keyframes slide-up {
-     0% {
-         bottom: -55px;
-     }
+/* Estilos para pantallas con un ancho máximo de 650px */
+@media (max-width: 650px) {
+    #redes {
+        display: none;
+        flex-direction: column;
+    }
 
-     100% {
-         bottom: 20px;
-     }
- }
+    .botones .icon-pequeno {
+        display: block;
+        width: 20px;
 
- /* Estilos para pantallas con un ancho máximo de 1200px */
- @media (max-width: 1200px) {
-     .botones .icon-pequeno {
-         display: none;
-     }
+    }
+    .botones .texto{
+        font-size: 20px;
+    }
+    .botones:hover .texto {
+        font-size: 22px;
+    }
+    .botones:hover .icon-pequeno {
+        width: 22px; 
+    }
+    #menu-hamburguesa {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        color: var(--color-fondo-brillo);
+        cursor: pointer;
+        z-index: 9999;
+        display: block;
+    }
 
-     .botones .texto {
-         font-size: 11px;
-     }
- }
+    #marcador {
+        width: 100%;
+        height: calc(100% / 7);
+        top: calc(100% / 7 * 3);
+    }
 
- /* Estilos para pantallas con un ancho máximo de 650px */
- @media (max-width: 650px) {
-     #redes {
-         display: none;
-         flex-direction: column;
-     }
-
-     .botones .icon-pequeno {
-         display: block;
-         width: 10px;
-
-     }
-
-     #menu-hamburguesa {
-         position: fixed;
-         top: 10px;
-         right: 10px;
-         color: var(--color-fondo-brillo);
-         cursor: pointer;
-         z-index: 9999;
-         display: block;
-     }
-
-     #marcador {
-         width: 100%;
-         height: calc(100% / 7);
-         top: calc(100% / 7 * 3);
-     }
-
-     #brillo {
-         width: 8%;
-         height: calc(100% / 7);
-         bottom: auto;
-         top: calc(100% / 7 * 3);
-     }
- }
+}
