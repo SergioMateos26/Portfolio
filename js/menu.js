@@ -84,6 +84,7 @@ function toggleMenu() {
     var marcador = document.getElementById('marcador');
     var brillo = document.getElementById('brillo');
     var buttons = document.querySelectorAll('.botones');
+    var bodyHome = document.getElementById('bodyHome');
 
     // Definir los estilos del área de redes sociales
     var redesStyles = {
@@ -104,6 +105,9 @@ function toggleMenu() {
 
     // Mostrar u ocultar el área de redes sociales
     if (!redes.classList.contains('menu-visible')) {
+
+        bodyHome.style.overflowY = 'hidden';
+
         // Aplicar los estilos al área de redes sociales
         for (var style in redesStyles) {
             redes.style[style] = redesStyles[style];
@@ -129,6 +133,7 @@ function toggleMenu() {
         redes.classList.remove('menu-visible');
         redes.classList.add('menu-hidden');
         redes.style.display = 'none';
+        bodyHome.style.overflowY = 'auto';
 
         // Restablecer posición del marcador y el brillo en pantallas anchas
         if (window.innerWidth > 650) {
