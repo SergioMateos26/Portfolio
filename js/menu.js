@@ -64,7 +64,7 @@ function toggleActive(button) {
     // Ajustes adicionales para pantallas estrechas
     if (window.innerWidth < 650) {
         marcador.style.borderRadius = '50px';
-        marcador.style.top = '48%';
+        marcador.style.top = 'auto';
         marcador.style.width = '40%';
         marcador.style.height = '5%';
         if (index === 0) {
